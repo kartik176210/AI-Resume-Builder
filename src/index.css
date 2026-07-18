@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'HelveticaNowDisplayW01-Rg', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Mainframe token system */
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-signal: #ff4d2e; /* used sparingly — ATS score accent */
+  --color-line: rgba(10, 10, 10, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  margin: 0;
+}
+
+/* html2canvas cannot parse Tailwind's modern color-mix values. These rules
+   apply only to its cloned export document, preserving the on-screen design. */
+.pdf-capture,
+.pdf-capture * {
+  color: #000 !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.pdf-capture > div {
+  background-color: #fff !important;
+}
+
+.pdf-capture aside,
+.pdf-capture aside * {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.pdf-capture aside {
+  background-color: #000 !important;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
